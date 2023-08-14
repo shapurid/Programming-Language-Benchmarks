@@ -68,6 +68,33 @@ environments:
     out_dir: out
     run_cmd: ruby --yjit -W0 app.rb
   - os: linux
+    compiler: ruby3.3.0-preview1
+    version: 3.3.0-preview1
+    docker:
+    include:
+    runtime_included: false
+    build: cp app.rb out
+    out_dir: out
+    run_cmd: ruby -W0 app.rb
+  - os: linux
+    compiler: ruby3.3.0-preview1/yjit
+    version: 3.3.0-preview1
+    docker:
+    include:
+    runtime_included: false
+    build: cp app.rb out
+    out_dir: out
+    run_cmd: ruby --yjit -W0 app.rb
+  - os: linux
+    compiler: ruby3.3.0-preview1/rjit
+    version: 3.3.0-preview1
+    docker:
+    include:
+    runtime_included: false
+    build: cp app.rb out
+    out_dir: out
+    run_cmd: ruby --rjit -W0 app.rb
+  - os: linux
     compiler: truffleruby
     version: latest
     docker: ghcr.io/graalvm/truffleruby
